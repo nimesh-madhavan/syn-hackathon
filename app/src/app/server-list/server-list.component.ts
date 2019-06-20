@@ -12,7 +12,7 @@ export class ServerListComponent implements OnInit {
   constructor(private localStore : LocalStoreService) { }
 
   ngOnInit() {
-    this.servers = this.localStore.GetServers()
+    this.localStore.GetServers().subscribe(item => this.servers= item);
   }
 
 }

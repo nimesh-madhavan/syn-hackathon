@@ -18,5 +18,7 @@ export class AddServerComponent implements OnInit {
 
   AddServers() {
     this.localStore.AddServers(this.serverName, this.serverUrl);
+    this.serverName = "";
+    this.serverUrl = "";
   }
 }

@@ -1,13 +1,26 @@
-<div>
-  <form>
-    <div class="form-group">
-      <label for="sname"> Server Name</label>
-      <input #sname type="text" name="sname" class="form-control" [(ngModel)]="serverName"><br>
+<div class="modal fade" tabindex="-1" id="serverModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add prometheus server</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="sname"> Server Name</label>
+          <input #sname type="text" name="sname" class="form-control" [(ngModel)]="serverName" placeholder="Enter server name"><br>
+        </div>
+        <div class="form-group">
+          <label for="surl">Server URL </label>
+          <input #surl type="text" name="surl" class="form-control" [(ngModel)]="serverUrl" placeholder="Enter server url"><br>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="AddServers()" data-dismiss="modal">Add Server</button>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="surl">Server URL </label>
-      <input #surl type="text" name="surl" class="form-control" [(ngModel)]="serverUrl"><br>
-    </div>
-    <button (click)="AddServers()" class="btn btn-primary">Add Server</button>
-  </form>
+  </div>
 </div>
