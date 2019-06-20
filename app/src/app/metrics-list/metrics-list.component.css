@@ -12,12 +12,12 @@
 }
 .metricjob{
   width: max-content;
-position: absolute;
+  float:left;
 }
 .metricDetail{
-  display: inline-block;
   height: 75vh;
-    overflow: scroll;
+  overflow: scroll;
+  float: left;
 }
 .metric {
   margin: 0 0 2em 0;

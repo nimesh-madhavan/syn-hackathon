@@ -1,0 +1,13 @@
+<div>
+  <form>
+    <div class="form-group">
+      <label for="sname"> Server Name</label>
+      <input #sname type="text" name="sname" class="form-control" [(ngModel)]="serverName"><br>
+    </div>
+    <div class="form-group">
+      <label for="surl">Server URL </label>
+      <input #surl type="text" name="surl" class="form-control" [(ngModel)]="serverUrl"><br>
+    </div>
+    <button (click)="AddServers()" class="btn btn-primary">Add Server</button>
+  </form>
+</div>

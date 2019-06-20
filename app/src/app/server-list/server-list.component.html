@@ -1,8 +1,10 @@
-<ul class="servers">
-  <li *ngFor="let server of servers">
+<h1>Prometheus Servers</h1>
+<div class="tr">
+  <div *ngFor="let server of servers" class="alert alert-secondary">
+    <span class="alert-heading">Server Name : {{server.name}}</span> <br />
     <a routerLink="/metrics/{{server.url}}">
-      <span class="server-name">{{server.name}}</span>
       <span class="server-url">{{server.url}}</span>
     </a>
-  </li>
-</ul>
+  </div>
+  <button type="button" class="btn btn-primary">Add Server</button>
+</div>
