@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStoreService } from '../local-store.service'
 
 @Component({
   selector: 'app-server-list',
@@ -6,21 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./server-list.component.css']
 })
 export class ServerListComponent implements OnInit {
-  servers = [
-    {
-      name: "server1",
-      url: "demo.robustperception.io:9090"
-    },
-    {
-      name: "server2",
-      url: "testserver.com"
-    }
-  ];
-  
-  constructor() { }
+  servers = [];
+
+  constructor(private localStore : LocalStoreService) { }
 
   ngOnInit() {
-
+    this.servers = this.localStore.GetServers()
   }
 
 }
