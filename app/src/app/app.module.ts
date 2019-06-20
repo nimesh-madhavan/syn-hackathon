@@ -6,11 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServerListComponent } from './server-list/server-list.component';
 import {MetricsListComponent}  from './metrics-list/metrics-list.component'
-<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http'; 
-=======
 import {AddServerComponent}  from './add-server/add-server.component'
->>>>>>> Add-Server component
 
 @NgModule({
   declarations: [
@@ -22,11 +19,8 @@ import {AddServerComponent}  from './add-server/add-server.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
-    HttpClientModule
-=======
+    HttpClientModule,
     FormsModule
->>>>>>> Add-Server component
   ],
   providers: [],
   bootstrap: [AppComponent]
