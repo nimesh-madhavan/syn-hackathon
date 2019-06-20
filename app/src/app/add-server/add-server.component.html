@@ -1,16 +1,13 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Add Prometheus URL
-  </h1>
+<div>
+  <form>
+    <div class="form-group">
+      <label for="sname"> Server Name</label>
+      <input #sname type="text" name="sname" class="form-control" [(ngModel)]="serverName"><br>
+    </div>
+    <div class="form-group">
+      <label for="surl">Server URL </label>
+      <input #surl type="text" name="surl" class="form-control" [(ngModel)]="serverUrl"><br>
+    </div>
+    <button (click)="AddServers()" class="btn btn-primary">Add Server</button>
+  </form>
 </div>
-<h2>{{ServerList}}</h2>
-<div style="align: center">
-
-  ServerName: <input #sname type="text" name="sname" [(ngModel)]="serverName"><br>
-  Server URL : <input #surl type="text" name="surl" [(ngModel)]="serverUrl"><br>
-  <button (click)="AddServers(sname.value,surl.value)">Add</button>
-
-</div>
-
-<router-outlet></router-outlet>

@@ -7,9 +7,9 @@ import { LocalStoreService } from '../local-store.service'
   styleUrls: ['./add-server.component.css']
 })
 export class AddServerComponent implements OnInit {
-  serverName="Enter Server Name"
-  serverUrl="Enter Server url"
-  constructor(private localStore : LocalStoreService) {
+  serverName = ""
+  serverUrl = ""
+  constructor(private localStore: LocalStoreService) {
   }
 
   ngOnInit() {
@@ -17,6 +17,6 @@ export class AddServerComponent implements OnInit {
   }
 
   AddServers() {
-      this.localStore.AddServers(this.serverName,this.serverUrl);
+    this.localStore.AddServers(this.serverName, this.serverUrl);
   }
 }
