@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Metrics } from '../metrics'
-import { METRICES } from '../mock-metrics';
-import { ApiService } from '../api.service'
+import { Component, OnInit, Input } from '@angular/core';
+import { Metrics } from '../metrics';
+import { ApiService } from '../api.service';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-metrics-list',
@@ -9,29 +9,28 @@ import { ApiService } from '../api.service'
   styleUrls: ['./metrics-list.component.css']
 })
 export class MetricsListComponent implements OnInit {
-
-  metrices = METRICES;
+  server: string;
   selectedMetrics: Metrics;
-  jobs :any;
-  metrics :any;
+  jobs: any;
+  metrics: any;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.server = params.server;
+    });
+  }
 
-ngOnInit() {
- this.api.getJobs('demo.robustperception.io:9090').subscribe((data) => {
- this.jobs = data;
- });
- //var node;
- //this.api.getMetrics('demo.robustperception.io:9090', node).subscribe((data) => {
- //this.metrics = data;
- //});
- }
- onSelectJob(job): void {
-   this.api.getMetrics('demo.robustperception.io:9090', job).subscribe((data) => {
-   this.metrics = data;
-   });
- }
+  ngOnInit() {
+    this.api.getJobs(this.server).subscribe((data) => {
+      this.jobs = data;
+    });
+  }
+  onSelectJob(job): void {
+    this.api.getMetrics(this.server, job).subscribe((data) => {
+      this.metrics = data;
+    });
+  }
   onSelect(metrics: Metrics): void {
-  this.selectedMetrics = metrics;
-}
+    this.selectedMetrics = metrics;
+  }
 }
