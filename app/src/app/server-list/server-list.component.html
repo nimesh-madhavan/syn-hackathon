@@ -1,0 +1,8 @@
+<ul class="servers">
+  <li *ngFor="let server of servers">
+    <a routerLink="/metrics/{{server.url}}">
+      <span class="server-name">{{server.name}}</span>
+      <span class="server-url">{{server.url}}</span>
+    </a>
+  </li>
+</ul>
