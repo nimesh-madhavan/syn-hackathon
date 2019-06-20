@@ -8,11 +8,17 @@ import { LocalStoreService } from '../local-store.service'
 })
 export class ServerListComponent implements OnInit {
   servers = [];
-
+  alertSuccessFlush = "Server List is now empty !"
   constructor(private localStore : LocalStoreService) { }
 
   ngOnInit() {
-    this.servers = this.localStore.GetServers()
+    this.localStore.GetServers().subscribe(item => this.servers= item);
+  }
+
+  FlushServers(){
+    this.localStore.FlushServers();
+    alert(this.alertSuccessFlush)
+    window.location.reload();
   }
 
 }

@@ -10,7 +10,6 @@ export class AddServerComponent implements OnInit {
   serverName = ""
   serverUrl = ""
   alertMessageEmpty= "Name or URL Feild is Empty !!"
-  alertSuccessFlush = "Server List is now empty !"
   constructor(private localStore: LocalStoreService) {
   }
 
@@ -26,9 +25,5 @@ export class AddServerComponent implements OnInit {
 
     this.localStore.AddServers(this.serverName, this.serverUrl);
 
-  }
-  FlushServers(){
-    this.localStore.FlushServers();
-    alert(this.alertSuccessFlush)
   }
 }
