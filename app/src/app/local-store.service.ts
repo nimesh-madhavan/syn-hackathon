@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ServerListComponent } from './server-list/server-list.component';
 import { JsonPipe } from '@angular/common';
-
+import { Observable, of } from 'rxjs';
 
 const serversKey = 'servers';
 
@@ -9,31 +9,16 @@ const serversKey = 'servers';
   providedIn: 'root'
 })
 export class LocalStoreService {
-  constructor() {
-    if (!localStorage.getItem(serversKey)) {
-      var servers = [
-        {
-          name: "server1",
-          url: "demo.robustperception.io:9090"
-        },
-        {
-          name: "server2",
-          url: "testserver.com"
-        }
-      ];
+  servers = []
+  constructor() {}
 
-      localStorage.setItem(serversKey, JSON.stringify(servers));
-    }
-  }
-
-  GetServers() {
-    return JSON.parse(localStorage.getItem(serversKey));
+  GetServers() : Observable<any[]> {
+    this.servers = JSON.parse(localStorage.getItem(serversKey));
+    return of(this.servers);
   }
 
   AddServers(sname: string, surl: string) {
-    var oldValues = JSON.parse(localStorage.getItem(serversKey)) || [];
-    oldValues.push({ name: sname, url: surl })
-    localStorage.setItem(serversKey, JSON.stringify(oldValues));
+    this.servers.push({ name: sname, url: surl });
+    localStorage.setItem(serversKey, JSON.stringify(this.servers));
   }
-
 }
