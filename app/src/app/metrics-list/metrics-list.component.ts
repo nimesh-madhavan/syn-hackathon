@@ -13,6 +13,7 @@ export class MetricsListComponent implements OnInit {
   selectedMetrics: Metrics;
   jobs: any;
   metrics: any;
+  selectedJob: any;
 
   constructor(private api: ApiService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
@@ -26,6 +27,7 @@ export class MetricsListComponent implements OnInit {
     });
   }
   onSelectJob(job): void {
+    this.selectedJob=job;
     this.api.getMetrics(this.server, job).subscribe((data) => {
       this.metrics = data;
     });

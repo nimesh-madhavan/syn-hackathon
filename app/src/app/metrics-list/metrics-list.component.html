@@ -1,12 +1,11 @@
-<h2 style="text-align: center;">My Metrices</h2>
+<h3 style="text-align: center;">Metrices for {{server}}</h3>
 <div style="width: max-content;">
 <div class=metricjob >
-<ul class="metrices">
-  <li *ngFor = "let job of jobs" (click)="onSelectJob(job)">
-      <div id="1"><span class="badge">{{job}}</span></div>
-
-  </li>
-  </ul>
+<div>
+  <div *ngFor = "let job of jobs" (click)="onSelectJob(job)">
+      <button type="button" class="btn" [ngClass]="{'btn-primary':job==selectedJob,'btn-light':job!=selectedJob}">{{job}}</button>
+  </div>
+  </div>
 </div>
 <div class= "metricDetail">
   <div style="padding-bottom: 4px;" *ngFor="let metric of metrics">
@@ -19,6 +18,8 @@
     </li>
   </ul> -->
 </div>
+<div *ngIf='metrics && metrics.length === 0'>No Results</div>
+<div *ngIf='jobs && jobs.length === 0'>No Results</div>
 </div>
 </div>
 <div *ngIf="selectedMetrics">
