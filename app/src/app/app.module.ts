@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServerListComponent } from './server-list/server-list.component';
-import {MetricsListComponent}  from './metrics-list/metrics-list.component'
-import { HttpClientModule } from '@angular/common/http'; 
-import {AddServerComponent}  from './add-server/add-server.component'
+import { MetricsListComponent } from './metrics-list/metrics-list.component'
+import { HttpClientModule } from '@angular/common/http';
+import { AddServerComponent } from './add-server/add-server.component'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {AddServerComponent}  from './add-server/add-server.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
