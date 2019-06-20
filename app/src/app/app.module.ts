@@ -2,13 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { AddServerComponent } from './add-server/add-server.component'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServerListComponent } from './server-list/server-list.component';
-import { MetricsListComponent } from './metrics-list/metrics-list.component'
+import {MetricsListComponent}  from './metrics-list/metrics-list.component'
 import { HttpClientModule } from '@angular/common/http';
-import { AddServerComponent } from './add-server/add-server.component'
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     FormsModule,
-    NgbModule
+    MatExpansionModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

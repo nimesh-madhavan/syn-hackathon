@@ -1,15 +1,42 @@
-<p>
-  metrics-list works!
-</p>
+<h2 style="text-align: center;">My Metrices</h2>
+<div style="width: max-content;">
+<div class=metricjob >
+<ul class="metrices">
+  <li *ngFor = "let job of jobs" (click)="onSelectJob(job)">
+      <div id="1"><span class="badge">{{job}}</span></div>
 
-<ul>
-  <li li *ngFor="let job of jobs">
-    {{job}}
   </li>
-</ul>
+  </ul>
+</div>
+<div class= "metricDetail">
+  <mat-expansion-panel *ngFor="let metric of metrics">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{metric.metric}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{metric.help}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
-<ul>
-  <li li *ngFor="let m of metrics">
-    {{m}}
-  </li>
-</ul>
+    MONIKA
+  </mat-expansion-panel>
+  <!-- <ul>
+    <li *ngFor="let metrics of metrics"
+      (click)="onSelect(metrics)">
+      <div class="badge1"><span>{{metrics.metric}}</span> {{metrics.help}}</div>
+    </li>
+  </ul> -->
+</div>
+</div>
+<div *ngIf="selectedMetrics">
+
+  <h2>{{selectedMetrics.name | uppercase}} Details</h2>
+  <div id="3"><span>id: </span>{{selectedMetrics.metric}}</div>
+  <div id="3">
+    <label>name:
+      <input [(ngModel)]="selectedMetrics.metric" placeholder="name"/>
+    </label>
+  </div>
+
+</div>
