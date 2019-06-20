@@ -9,24 +9,16 @@
   </ul>
 </div>
 <div class= "metricDetail">
-  <mat-expansion-panel *ngFor="let metric of metrics">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{metric.metric}}
-      </mat-panel-title>
-      <mat-panel-description>
+  <div style="padding-bottom: 4px;" *ngFor="let metric of metrics">
+  <a href="http://demo.robustperception.io:9090/graph?g0.range_input=1h&g0.expr={{metric.metric}}&g0.tab=0" target="_blank"><span ><b>{{metric.metric}}: </b> </span></a>
         {{metric.help}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    MONIKA
-  </mat-expansion-panel>
   <!-- <ul>
     <li *ngFor="let metrics of metrics"
       (click)="onSelect(metrics)">
       <div class="badge1"><span>{{metrics.metric}}</span> {{metrics.help}}</div>
     </li>
   </ul> -->
+</div>
 </div>
 </div>
 <div *ngIf="selectedMetrics">

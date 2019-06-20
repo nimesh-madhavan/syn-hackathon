@@ -18,6 +18,7 @@
   height: 75vh;
   overflow: scroll;
   float: left;
+  padding:15px;
 }
 .metric {
   margin: 0 0 2em 0;
