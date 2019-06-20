@@ -6,7 +6,18 @@
       <span class="server-url">{{server.url}}</span>
     </a>
   </div>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#serverModal">Add Server</button>
-  <button type="button" class="btn btn-primary" (click)="FlushServers()">Flush Servers</button>
+  <div>
+    <h2>{{noServerMsg}}</h2><br />
+  </div>
+  <div class="form-group">
+  </div>
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#serverModal">Add Server</button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-primary" (click)="FlushServers()">Flush Servers</button>
+    </div>
+  </div>
   <app-add-server></app-add-server>
 </div>

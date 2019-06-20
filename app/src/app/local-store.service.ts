@@ -3,16 +3,16 @@ import { ServerListComponent } from './server-list/server-list.component';
 import { JsonPipe } from '@angular/common';
 import { Observable, of } from 'rxjs';
 
-const serversKey ='servers';
+const serversKey = 'servers';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStoreService {
   servers = []
-  constructor() {}
+  constructor() { }
 
-  GetServers() : Observable<any[]> {
+  GetServers(): Observable<any[]> {
     this.servers = JSON.parse(localStorage.getItem(serversKey));
     return of(this.servers);
   }
@@ -21,7 +21,7 @@ export class LocalStoreService {
     this.servers.push({ name: sname, url: surl });
     localStorage.setItem(serversKey, JSON.stringify(this.servers));
   }
-  FlushServers(){
-    localStorage.setItem(serversKey,JSON.stringify([]));
+  FlushServers() {
+    localStorage.setItem(serversKey, JSON.stringify([]));
   }
 }

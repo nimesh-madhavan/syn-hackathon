@@ -9,7 +9,7 @@ import { LocalStoreService } from '../local-store.service'
 export class AddServerComponent implements OnInit {
   serverName = ""
   serverUrl = ""
-  alertMessageEmpty= "Name or URL Feild is Empty !!"
+  alertMessageEmpty= "Name or URL Field is Empty !!"
   constructor(private localStore: LocalStoreService) {
   }
 
@@ -24,6 +24,8 @@ export class AddServerComponent implements OnInit {
     }
 
     this.localStore.AddServers(this.serverName, this.serverUrl);
-
+    this.serverName = "";
+    this.serverUrl = "";
+    window.location.reload();
   }
 }
