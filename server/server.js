@@ -1,6 +1,8 @@
 var express = require('express');
 var request = require('request');
+var cors = require('cors');
 var app = express();
+app.use(cors());
 const JobsPath = '/api/v1/label/job/values';
 const MetadataPath = '/api/v1/targets/metadata?match_target={job="{0}"}';
 String.prototype.formatUnicorn = String.prototype.formatUnicorn ||
