@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Add Prometheus URL
+  </h1>
+</div>
+<h2>{{ServerList}}</h2>
+<div style="align: center">
+
+  ServerName: <input #sname type="text" name="sname" [(ngModel)]="serverName"><br>
+  Server URL : <input #surl type="text" name="surl" [(ngModel)]="serverUrl"><br>
+  <button (click)="AddServers(sname.value,surl.value)">Add</button>
+
+</div>
+
+<router-outlet></router-outlet>

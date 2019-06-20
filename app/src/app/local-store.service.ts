@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { ServerListComponent } from './server-list/server-list.component';
 import { JsonPipe } from '@angular/common';
 
+
 const serversKey ='servers';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStoreService {
-  constructor() { 
+  constructor() {
     if(!localStorage.getItem(serversKey)){
     var servers = [
       {
@@ -20,7 +21,7 @@ export class LocalStoreService {
         url: "testserver.com"
       }
     ];
-  
+
       localStorage.setItem(serversKey, JSON.stringify( servers));
     }
   }
@@ -28,4 +29,11 @@ export class LocalStoreService {
   GetServers() {
     return JSON.parse( localStorage.getItem(serversKey));
   }
+
+  AddServers(sname: string, surl: string){
+    var oldValues = JSON.parse(localStorage.getItem(serversKey)) || [];
+    oldValues.push({name: sname, url: surl})
+    localStorage.setItem(serversKey,JSON.stringify(oldValues));
+  }
+
 }
