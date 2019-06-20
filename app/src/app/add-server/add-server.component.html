@@ -16,10 +16,13 @@
           <label for="surl">Server URL </label>
           <input #surl type="text" name="surl" class="form-control" [(ngModel)]="serverUrl" placeholder="Enter server url"><br>
         </div>
+        <div class="alert alert-danger" *ngIf="invalidServer.length > 0">
+          {{invalidServer}}
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="AddServers()" data-dismiss="modal">Add Server</button>
+        <button type="button" class="btn btn-primary" (click)="AddServers()">Add Server</button>
       </div>
     </div>
   </div>
