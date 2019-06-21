@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStoreService } from '../local-store.service'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-server-list',
@@ -10,12 +11,12 @@ export class ServerListComponent implements OnInit {
   servers = [];
   noServerMsg = "";
   alertSuccessFlush = "Server List is now empty !"
-  constructor(private localStore: LocalStoreService) { }
+  constructor(private localStore: LocalStoreService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.localStore.GetServers().subscribe(item => this.servers = item);
     if (this.servers.length == 0) {
-      this.noServerMsg = "No Server available !"
+      this.noServerMsg = "No Servers available! Please add a server to view matrices"
     }
     else {
       this.noServerMsg = "";
@@ -24,7 +25,6 @@ export class ServerListComponent implements OnInit {
 
   FlushServers() {
     this.localStore.FlushServers();
-    alert(this.alertSuccessFlush)
-    window.location.reload();
+    this.toastr.success('Servers removed from list');
   }
 }

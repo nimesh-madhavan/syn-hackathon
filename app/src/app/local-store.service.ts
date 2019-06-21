@@ -23,5 +23,6 @@ export class LocalStoreService {
   }
   FlushServers() {
     localStorage.setItem(serversKey, JSON.stringify([]));
+    this.servers.length = 0;
   }
 }

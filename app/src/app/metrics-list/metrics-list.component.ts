@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Metrics } from '../metrics';
 import { ApiService } from '../api.service';
 import { ActivatedRoute } from "@angular/router";
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-metrics-list',
   templateUrl: './metrics-list.component.html',
@@ -27,7 +27,7 @@ export class MetricsListComponent implements OnInit {
     });
   }
   onSelectJob(job): void {
-    this.selectedJob=job;
+    this.selectedJob = job;
     this.api.getMetrics(this.server, job).subscribe((data) => {
       this.metrics = data;
     });

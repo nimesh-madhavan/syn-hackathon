@@ -1,26 +1,30 @@
 <h3 style="text-align: center;">Metrices for {{server}}</h3>
 <div style="width: max-content;">
-<div class=metricjob >
-<div>
-  <div *ngFor = "let job of jobs" (click)="onSelectJob(job)">
-      <button type="button" class="btn" [ngClass]="{'btn-primary':job==selectedJob,'btn-light':job!=selectedJob}">{{job}}</button>
+  <div class=metricjob>
+    <div>
+      <div *ngFor="let job of jobs" (click)="onSelectJob(job)" style="padding: 5px">
+        <button type="button" class="btn"
+          [ngClass]="{'btn-primary':job==selectedJob,'btn-light':job!=selectedJob}">{{job}}</button>
+      </div>
+    </div>
   </div>
-  </div>
-</div>
-<div class= "metricDetail">
-  <div style="padding-bottom: 4px;" *ngFor="let metric of metrics">
-  <a href="http://demo.robustperception.io:9090/graph?g0.range_input=1h&g0.expr={{metric.metric}}&g0.tab=0" target="_blank"><span ><b>{{metric.metric}}: </b> </span></a>
-        {{metric.help}}
-  <!-- <ul>
+  <div class="metricDetail">
+    <div style="padding-bottom: 4px;" *ngFor="let metric of metrics">
+      <a href="http://demo.robustperception.io:9090/graph?g0.range_input=1h&g0.expr={{metric.metric}}&g0.tab=0"
+        target="_blank"><span><b>{{metric.metric}}: </b> </span></a>
+      {{metric.help}}
+      <!-- <ul>
     <li *ngFor="let metrics of metrics"
       (click)="onSelect(metrics)">
       <div class="badge1"><span>{{metrics.metric}}</span> {{metrics.help}}</div>
     </li>
   </ul> -->
-</div>
-<div *ngIf='metrics && metrics.length === 0'>No Results</div>
-<div *ngIf='jobs && jobs.length === 0'>No Results</div>
-</div>
+    </div>
+    <div *ngIf='metrics && metrics.length === 0' class="alert alert-warning">No Results</div>
+    <div *ngIf='jobs && jobs.length === 0' class="alert alert-warning">No Results</div>
+    <div *ngIf='jobs && jobs.length >0 && ! selectedJob' class="alert alert-info">Please select a job category to view
+      the matrices!</div>
+  </div>
 </div>
 <div *ngIf="selectedMetrics">
 
@@ -28,7 +32,7 @@
   <div id="3"><span>id: </span>{{selectedMetrics.metric}}</div>
   <div id="3">
     <label>name:
-      <input [(ngModel)]="selectedMetrics.metric" placeholder="name"/>
+      <input [(ngModel)]="selectedMetrics.metric" placeholder="name" />
     </label>
   </div>
 

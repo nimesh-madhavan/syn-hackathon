@@ -6,11 +6,13 @@ import { AddServerComponent } from './add-server/add-server.component'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServerListComponent } from './server-list/server-list.component';
-import {MetricsListComponent}  from './metrics-list/metrics-list.component'
+import { MetricsListComponent } from './metrics-list/metrics-list.component'
 import { HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CommonModule,
+    ToastrModule.forRoot(),
     FormsModule,
     MatExpansionModule,
     NoopAnimationsModule

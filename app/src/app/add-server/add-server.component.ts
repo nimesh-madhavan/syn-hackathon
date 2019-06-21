@@ -22,9 +22,13 @@ export class AddServerComponent implements OnInit {
 
   AddServers() {
     if (this.serverName == "" || this.serverUrl == "") {
-      alert(this.alertMessageEmpty);
+      this.invalidServer = "Server Name or Url empty. Both fields need to be specified!"
       return;
     }
+    else {
+      this.invalidServer = ""
+    }
+
     this.apiService.getJobs(this.serverUrl).subscribe(item => {
       if (item.length == 0) {
         this.invalidServer = "Invalid server"

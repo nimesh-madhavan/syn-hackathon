@@ -7,15 +7,15 @@
     </a>
   </div>
   <div>
-    <h2>{{noServerMsg}}</h2><br />
+    <div class="alert alert-info" *ngIf='noServerMsg'>{{noServerMsg}}</div>
   </div>
   <div class="form-group">
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col" style="text-align:center;">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#serverModal">Add Server</button>
     </div>
-    <div class="col">
+    <div class="col" style="text-align:center;">
       <button type="button" class="btn btn-primary" (click)="FlushServers()">Flush Servers</button>
     </div>
   </div>
