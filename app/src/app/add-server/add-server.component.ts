@@ -13,7 +13,6 @@ import { ToastrService } from 'ngx-toastr';
 export class AddServerComponent implements OnInit {
   serverName = ""
   serverUrl = ""
-  alertMessageEmpty = "Name or URL Field is Empty !!"
   invalidServer = "";
   constructor(private localStore: LocalStoreService, private apiService: ApiService, private toastService : ToastrService) {
   }
@@ -45,5 +44,11 @@ export class AddServerComponent implements OnInit {
         this.toastService.success('Server added.');
       }
     });
+  }
+
+  ClearForm () {
+    this.serverName = "";
+    this.serverUrl = "";
+    this.invalidServer = "";
   }
 }
