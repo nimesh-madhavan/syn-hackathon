@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStoreService } from '../local-store.service'
 import { ApiService } from '../api.service'
-//import $ from "jquery";
+import * as $ from "jquery";
+import "bootstrap";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-server',
@@ -13,7 +15,7 @@ export class AddServerComponent implements OnInit {
   serverUrl = ""
   alertMessageEmpty = "Name or URL Field is Empty !!"
   invalidServer = "";
-  constructor(private localStore: LocalStoreService, private apiService: ApiService) {
+  constructor(private localStore: LocalStoreService, private apiService: ApiService, private toastService : ToastrService) {
   }
 
   ngOnInit() {
@@ -38,15 +40,10 @@ export class AddServerComponent implements OnInit {
         this.localStore.AddServers(this.serverName, this.serverUrl);
         this.serverName = "";
         this.serverUrl = "";
-        var abc = document.getElementById("serverModal");
-        console.log(abc);
-        window.location.reload();
+        $("#serverModal").modal('hide');
+        $(".modal-backdrop").css("display", "none");
+        this.toastService.success('Server added.');
       }
     });
-
-    //this.localStore.AddServers(this.serverName, this.serverUrl);
-    //this.serverName = "";
-    //this.serverUrl = "";
-    //window.location.reload();
   }
 }

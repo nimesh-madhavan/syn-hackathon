@@ -14,17 +14,20 @@ export class ServerListComponent implements OnInit {
   constructor(private localStore: LocalStoreService, private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.localStore.GetServers().subscribe(item => this.servers = item);
-    if (this.servers.length == 0) {
-      this.noServerMsg = "No Servers available! Please add a server to view matrices"
-    }
-    else {
-      this.noServerMsg = "";
-    }
+    this.localStore.GetServers().subscribe(item => {
+      this.servers = item;
+      if (this.servers.length == 0) {
+        this.noServerMsg = "No Servers available! Please add a server to view metrices"
+      }
+      else {
+        this.noServerMsg = "";
+      }
+    });
   }
 
   FlushServers() {
     this.localStore.FlushServers();
     this.toastr.success('Servers removed from list');
+    this.noServerMsg = "No Servers available! Please add a server to view metrices"
   }
 }

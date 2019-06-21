@@ -7,7 +7,7 @@
     </a>
   </div>
   <div>
-    <div class="alert alert-info" *ngIf='noServerMsg'>{{noServerMsg}}</div>
+    <div class="alert alert-info" *ngIf='!servers || servers.length === 0'>{{noServerMsg}}</div>
   </div>
   <div class="form-group">
   </div>
