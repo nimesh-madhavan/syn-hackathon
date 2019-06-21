@@ -13,7 +13,7 @@ export class LocalStoreService {
   constructor() { }
 
   GetServers(): Observable<any[]> {
-    this.servers = JSON.parse(localStorage.getItem(serversKey));
+    this.servers = JSON.parse(localStorage.getItem(serversKey)) || [];
     return of(this.servers);
   }
 

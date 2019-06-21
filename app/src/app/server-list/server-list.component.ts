@@ -15,7 +15,7 @@ export class ServerListComponent implements OnInit {
 
   ngOnInit() {
     this.localStore.GetServers().subscribe(item => {
-      this.servers = item;
+      this.servers = item || [];
       if (this.servers.length == 0) {
         this.noServerMsg = "No Servers available! Please add a server to view metrices"
       }
