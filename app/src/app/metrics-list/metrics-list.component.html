@@ -6,11 +6,11 @@
 <div style="width: max-content;">
   <div class=metricjob>
     <div>
-        <div class="d-flex flex-column flex-grow" style="padding: 5px"> 
-            <a href="#" class="btn btn-info btn-lg" >
-              <span class="fas fa-home"></span> Home
-            </a>
-          </div>
+      <div class="d-flex flex-column flex-grow" style="padding: 5px">
+        <a href="#" class="btn btn-info btn-lg">
+          <span class="fas fa-home"></span> Home
+        </a>
+      </div>
       <div *ngFor="let job of jobs" (click)="onSelectJob(job)" style="padding: 5px"
         class="d-flex flex-column flex-grow">
         <button type="button" class="btn"
@@ -33,7 +33,7 @@
     <div *ngIf='metrics && metrics.length === 0' class="alert alert-warning">No Results</div>
     <div *ngIf='jobs && jobs.length === 0' class="alert alert-warning">No Results</div>
     <div *ngIf='jobs && jobs.length >0 && ! selectedJob' class="alert alert-info">Please select a job category to view
-      the matrices!</div>
+      the metrices!</div>
   </div>
 </div>
 <div *ngIf="selectedMetrics">
