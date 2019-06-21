@@ -2,7 +2,8 @@
 <div style="width: max-content;">
   <div class=metricjob>
     <div>
-      <div *ngFor="let job of jobs" (click)="onSelectJob(job)" style="padding: 5px">
+      <div *ngFor="let job of jobs" (click)="onSelectJob(job)" style="padding: 5px"
+        class="d-flex flex-column flex-grow">
         <button type="button" class="btn"
           [ngClass]="{'btn-primary':job==selectedJob,'btn-light':job!=selectedJob}">{{job}}</button>
       </div>
